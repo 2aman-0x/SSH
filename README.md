@@ -19,6 +19,26 @@ You can check using ```rpm -qa | grep ssh,``` or check the file ```/etc/ssh/sshd
 If not already installed then install below to ```install openssh_clients openssh-server```  
 and now enable the ssh or check if it is enabled using ```systemctl status sshd```  
 
+## How to access remote server without password?
+If you frquently access the server then its goof idea to configure your ssh key so thet you can login without password  
+
+__Follow the steps below__
+1. Generate a new ssh key pair on local machine.
+2. Copy public key to Remote Machine.
+3. Login to remote server without password.
+
+__Its a 3 step process:__
+
+- step1 : Generate an SSH key using  
+```ssh-keygen```  
+- step2 : Check generated key using  
+```ls -l .ssh```  
+```cat `/.ssh/id_rsa.pub```  
+- step3 : Copy public SSH key to remote server. (on remote server it is copied under ```~/.ssh/authorizedkeys``` file)  
+```ssh-copy-id root@192.168....``` (It will copy by default public key)
+
+
+
 
 
 
